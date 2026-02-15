@@ -1,11 +1,12 @@
   
   body {
     background-color:rgb(79, 79, 219);
+    color:aliceblue
   }
 
   h1 {
     font-family: 'Times New Roman', Times, serif;
-    color:black;
+    color:rgb(255, 254, 254);
     font-size: 50px;
   }
 
@@ -21,13 +22,22 @@
     color: azure;
   }
 
+/* visited effect on links*/
+.nav-links a:visited{
+
+  color: black;
+}
+.nav-links a:active{
+
+  color:gold
+}
 /* Hover effect on links*/
-.a:hover{
-    color:rgb(26, 76, 175);
+.nav-links a:hover{
+    color:rgb(227, 228, 229);
 }
   
 /* click effect on links */
-.a:click{
+.nav-links a:click{
     color:rgb(83, 216, 78);
 }
 
@@ -39,3 +49,18 @@
   img{
     float:right;
   }
+
+/* Dark mode colors*/
+  .dark-mode {
+  background: #111;
+  color: #f5f3f3;
+}
+
+.dark-mode .content {
+  background-color: #333;
+  border-color: #444;
+}
+
+.dark-mode .header {
+  background-color: #222;
+}
