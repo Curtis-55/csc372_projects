@@ -1,10 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-
+// curtis palmer 2/12/26 used chat Gpt to help with authentication and loading
     const CLIENT_ID = '526663546746-f4ue8l78pts25lt4t26bnrm8jrc03bre.apps.googleusercontent.com';
     const API_KEY = 'AIzaSyCXPewDxAFd0np3CX6-IJIa9R7B0ccvXf0';
     const SCOPES = 'https://www.googleapis.com/auth/drive.readonly';
     const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
 
+    //loads client
     function handleClientLoad() {
         gapi.load('client:auth2', {
             callback: initClient,
@@ -13,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ontimeout: () => console.error("gapi load timed out")
         });
     }
-
+//initalized client
     function initClient() {
         gapi.client.init({
             apiKey: API_KEY,
@@ -27,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // sign in button
     function updateSigninStatus(isSignedIn) {
         if (isSignedIn) {
             listFiles();
@@ -57,6 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    //error handling
     if (window.gapi) {
         handleClientLoad();
     } else {
