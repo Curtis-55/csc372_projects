@@ -1,13 +1,13 @@
-// Curtis Palmer 2/22/2026 – Node server for web app, fixed for Render deployment
+// Curtis Palmer 2/22/2026 – server node that runs web server and hendles requests, used chatGPT to help with syntax
 
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-// Use Render’s dynamic port or default to 3000
+// port to 3000
 const PORT = process.env.PORT || 3000;
 
-// Determine content type
+//  content type
 function getContentType(filePath) {
     const ext = path.extname(filePath).toLowerCase();
     switch (ext) {
@@ -22,7 +22,7 @@ function getContentType(filePath) {
     }
 }
 
-// Serve a static file
+//  static file
 function serveStaticFile(filePath, res) {
     fs.readFile(filePath, (err, data) => {
         if (err) {
@@ -44,7 +44,7 @@ function serveStaticFile(filePath, res) {
     });
 }
 
-// Case-insensitive file lookup for Linux
+// Case-insensitive for linux since I was having issues with my page loading on render
 function findFileCaseInsensitive(filePath) {
     const dir = path.dirname(filePath);
     const base = path.basename(filePath);
@@ -56,14 +56,14 @@ function findFileCaseInsensitive(filePath) {
     return match ? path.join(dir, match) : filePath;
 }
 
-// Create server
+// creates the  server
 const server = http.createServer((req, res) => {
     let requestedPath = req.url.split('?')[0];
 
     if (requestedPath.endsWith('/')) requestedPath = requestedPath.slice(0, -1);
     if (requestedPath === '') requestedPath = '/';
 
-    // Base folder for static files
+    //  folder for static files
     let filePath = path.join(__dirname, 'public');
 
     if (requestedPath === '/') {
@@ -71,17 +71,17 @@ const server = http.createServer((req, res) => {
     } else {
         filePath = path.join(filePath, requestedPath);
 
-        // If no extension, assume .html
+        // If no extension assume that its html
         if (!path.extname(filePath)) filePath += '.html';
     }
 
-    // Make lookup case-insensitive
+    // Make the lookup case-insensitive
     filePath = findFileCaseInsensitive(filePath);
 
     serveStaticFile(filePath, res);
 });
 
-// Start server
+// Start the server
 server.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
