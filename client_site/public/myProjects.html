@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<script src="https://apis.google.com/js/api.js"></script>
+
+<title>My Projects</title>
+    <!-- Link to stylesheet-->
+    <link rel="stylesheet" type="text/css" href="CSS.css">    <!-- Link to stylesheet-->
+
+
+
+
+
+</head>
+
+<body>
+<img src="images\ThinkTree_logo.png" alt="ThinkTree_logo" width = "150px">
+
+<h1>My Projects</h1>
+
+    <h2 id="nav-links">
+         <a href="ThinkTree.html">Home |</a>
+         <a href="createProject.html">Create Project |</a>
+         <a href="myProjects.html">My Projects |</a>
+         <a href="createProject.html">Create Project |</a> 
+         <a href="about.html">About</a>
+    </h2>
+
+
+
+<!-- Buttons for authentication -->
+<button id="signin-button" onclick="handleAuthClick()">Sign in with Google</button>
+<button onclick="handleSignoutClick()">Sign out</button>
+
+<!-- Where files will be displayed -->
+<div id="projects-list"></div>
+
+<!-- Scripts -->
+
+
+<script src="googleAPI.js"></script>
+<hr>
+<button id="darkModeToggle"> Toggle Dark Mode</button>
+<script src="darkmode.js"></script>
+
+</body>
+
+
+
+
+</html>
