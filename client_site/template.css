@@ -1,0 +1,55 @@
+body{
+    font-family: Arial;
+    background:#0f172a;
+    color:white;
+    margin:40px;
+}
+
+.templates{
+    display:flex;
+    gap:30px;
+}
+
+.card{
+    background:#1e293b;
+    padding:20px;
+    border-radius:10px;
+    width:260px;
+}
+
+h2{
+    color:#38bdf8;
+}
+
+h1{
+    font-family: 'Times New Roman', Times, serif;
+    color:rgb(255, 254, 254);
+    font-size: 50px;
+  }
+
+
+
+  /* visited effect on links*/
+.nav-links a:visited{
+
+  color: black;
+}
+.nav-links a:active{
+
+  color:gold
+}
+/* Hover effect on links*/
+.nav-links a:hover{
+    color:rgb(227, 228, 229);
+}
+  
+/* click effect on links */
+.nav-links a:click{
+    color:rgb(83, 216, 78);
+}
+
+.nav-links{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+
+}
