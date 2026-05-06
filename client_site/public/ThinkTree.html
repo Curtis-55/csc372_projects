@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ThinkTree</title>
+
+<link rel="stylesheet" type="text/css" href="home.css">
+
+</head>
+
+<body>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleBtn = document.getElementById("darkModeToggle");
+
+  if (!toggleBtn) {
+    console.log("Dark mode button not found");
+    return;
+  }
+
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
+
+    console.log("Light mode:", document.body.classList.contains("light-mode"));
+
+    toggleBtn.innerText = document.body.classList.contains("light-mode")
+      ? "Switch to Dark Mode"
+      : "Switch to Light Mode";
+  });
+});
+</script>
+
+<!-- Header -->
+<div id="header">
+
+  <div class="logo-bar">
+    <img src="images/ThinkTree_logo.png" alt="ThinkTree Logo">
+    <h1 id="site-title">ThinkTree</h1>
+  </div>
+
+  <nav>
+    <a href="./ThinkTree.html">Home</a>
+    <a href="./createProject.html">Create Project</a>
+    <a href="./templates.html">Templates</a>
+    <a href="./about.html">About</a>
+  </nav>
+
+</div>
+
+<!-- Content -->
+<div class="container">
+
+  <h2 class="section-title">How it works</h2>
+  <p>
+    ThinkTree is a visual process design tool that helps programmers plan algorithms,
+    systems, and workflows using interactive code blocks and structured planning trees.
+  </p>
+
+  <h2 class="section-title">Website Goals</h2>
+  <ul>
+    <li>Provide an intuitive platform for algorithm visualization</li>
+    <li>Enable users to plan programs before coding</li>
+    <li>Offer a minimalist alternative to flowchart tools</li>
+    <li>Remove barriers like mandatory accounts</li>
+  </ul>
+
+  <!-- Images -->
+  <div class="image-row">
+    <img src="images/codeImage1.png" alt="code example 1">
+    <img src="images/codeImage2.png" alt="code example 2">
+  </div>
+
+</div>
+
+<!-- Dark mode -->
+<button id="darkModeToggle">Toggle Dark Mode</button>
+
+<script src="homeFeat.js"></script>
+
+
+</body>
+</html>
