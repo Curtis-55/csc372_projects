@@ -1,35 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<title>About</title>
-    <!-- Link to stylesheet-->
-    <link rel="stylesheet" type="text/css" href="CSS.css">
-
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About ThinkTree</title>
+<link rel="stylesheet" type="text/css" href="about.css">
 
 </head>
-
 <body>
-<img src="images/ThinkTree_logo.png" alt="ThinkTree_logo" width = "150px">
 
-<h1>About</h1>
+<!-- Logo -->
+<div class="logo-bar">
+  <img src="images/ThinkTree_logo.png" alt="ThinkTree Logo">
+  <h2>ThinkTree</h2>
+</div>
 
-    <h2 id="nav-links">
-         <a href="ThinkTree.html">Home |</a>
-         <a href="createProject.html">Create Projec |</a>
-         <a href="myProjects.html">My Projects |</a>
-         <a href="createProject.html">Create Project |</a> 
-         <a href="about.html">About</a>
-    </h2>
+<!-- Nav bar -->
+<nav id="nav-links">
+  <a href="ThinkTree.html">Home</a>
+  <a href="createProject.html">Create Project</a>
+  <a href="templates.html">Templates</a>
+  <a href="about.html" class="active">About</a>
+</nav>
 
-<hr>
 
-    <button id="darkModeToggle"> Toggle Dark Mode</button>
-    <script src="darkmode.js"></script>
+<div class="hero">
+  <h1>About ThinkTree</h1>
+  <p>
+    ThinkTree is a visual coding and planning workspace designed to help developers,
+    students, and creators structure ideas using interactive boxes, code blocks,
+    and algorithm templates. Instead of planning on paper or scattered notes,
+    ThinkTree lets you build structured visual systems for your projects.
+  </p>
+</div>
+
+
+<!-- Feedback -->
+<div class="feedback-section">
+
+  <div class="feedback-card">
+
+    <h2>Feedback</h2>
+    <p>Help improve ThinkTree by sharing your thoughts.</p>
+
+    <form class="feedback-form">
+
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" rows="5" placeholder="Write your feedback..." required></textarea>
+      </div>
+
+      <button type="submit">Send</button>
+
+    </form>
+
+  </div>
+
+</div>
+
+<!-- Info cards -->
+<div class="grid">
+
+  <div class="card">
+    <h3>Purpose</h3>
+    <p>To help you visually plan code, algorithms, and project structures in a clear and interactive way.</p>
+  </div>
+
+  <div class="card">
+    <h3>How It Works</h3>
+    <p>Create draggable text and code blocks, connect ideas, and use templates for common algorithms.</p>
+  </div>
+
+  <div class="card">
+    <h3> Why It’s Different</h3>
+    <p>Instead of static notes, ThinkTree gives you a live workspace for building logic visually.</p>
+  </div>
+
+</div>
 
 </body>
-
-
 </html>

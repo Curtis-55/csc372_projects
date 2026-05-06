@@ -1,75 +1,77 @@
-  
-
-  body {
-    background-color:rgb(79, 79, 219);
-    color:aliceblue
-  }
-
-  h1 {
-    font-family: 'Times New Roman', Times, serif;
-    color:rgb(255, 254, 254);
-    font-size: 50px;
-  }
-
-  p{
-    color: aliceblue;
-    font-size: 15px;
-    font-family: 'Times New Roman', Times, serif;
-  }
-
-/* main header with logo and nav links */
-  .header{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: azure;
-  }
-
-
-#nav-links {
-  font-size: 24px;        
-  margin: 10px 0;         
-  text-align: center;     
-  padding: 10px 0;        
-  background-color: #dfdada; 
-}
-/* visited effect on links*/
-.nav-links a:visited{
-
-  color: black;
-}
-.nav-links a:active{
-
-  color:gold
-}
-/* Hover effect on links*/
-.nav-links a:hover{
-    color:rgb(227, 228, 229);
-}
-  
-/* click effect on links */
-.nav-links a:click{
-    color:rgb(83, 216, 78);
+body {
+  background-color: #000; /* black */
+  color: #00ff88; /* neon green */
 }
 
-/* main content box */
-.content{
-    color:azure;
+/* Headings */
+h1 {
+  font-family: 'Times New Roman', Times, serif;
+  color: #00ff88;
+  font-size: 50px;
+  text-shadow: 0 0 10px #00ff88;
 }
 
-  img{
-    float:right;
-  }
+/* Paragraphs */
+p {
+  color: #00ff88;
+  font-size: 15px;
+  font-family: 'Times New Roman', Times, serif;
+}
 
-/* Dark mode colors*/
-  .dark-mode {
-  background: #111;
-  color: #f5f3f3;
+/* Header */
+.header {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #00ff88;
+  background-color: #050505;
+  padding: 15px;
+  border-bottom: 2px solid #00ff88;
+}
+
+/* main content */
+.content {
+  color: #00ff88;
+  background-color: #0a0a0a;
+  padding: 20px;
+  border: 1px solid #00ff88;
+  border-radius: 8px;
+}
+
+/* images */
+img {
+  float: right;
+  border: 2px solid #0f0f0f;
+  border-radius: 5px;
+}
+
+/* Dark mode (already matches theme but enhanced) */
+.dark-mode {
+  background: rgb(224, 217, 217);
+  color: #000000;
 }
 
 .dark-mode .content {
-  background-color: #333;
-  border-color: #444;
+  background-color: rgb(224, 217, 217);
+  border-color: #0b0d0c;
 }
 
 .dark-mode .header {
-  background-color: #222;
+  background-color: rgb(224, 217, 217);
+}
+
+/* Extra enhancements */
+button {
+  background-color:rgb(224, 217, 217);
+  color: #121312;
+  border: 1px solid #141414;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0d0e0d;
+  color: rgb(255, 255, 255);
+}
+
+a {
+  transition: all 0.3s ease;
 }

@@ -1,32 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<title>Create Project </title>
-
-    <!-- Link to stylesheet-->
-    <link rel="stylesheet" type="text/css" href="CSS.css">
-
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ThinkTree Planner</title>
+<link rel="stylesheet" type="text/css" href="createProjects.css">
 </head>
 
 <body>
-<img src="images/ThinkTree_logo.png" alt="ThinkTree_logo" width = "150px">
 
-<h1>Create Project</h1>
+<!-- logo -->
+<div style="padding:10px 20px; display:flex; align-items:center; gap:10px; background:#0b0b0b;">
+  <img src="images/ThinkTree_logo.png" alt="ThinkTree_logo" width="120">
+  <h2 style="margin:0; color:#00ff88;">ThinkTree</h2>
+</div>
 
-    <h2 id="nav-links">
-         <a href="ThinkTree.html">Home |</a>
-         <a href="createProject.html">Create Project |</a>
-         <a href="myProjects.html">My Projects |</a>
-         <a href="createProject.html">Create Project |</a> 
-         <a href="about.html">About</a>
-    </h2>
-<hr>
-    <button id="darkModeToggle"> Toggle Dark Mode</button>
-    <script src="darkmode.js"></script>
+<!-- Nav bar -->
+<nav id="nav-links">
+  <a href="ThinkTree.html">Home</a>
+  <a href="createProject.html" class="active">Create Project</a>
+  <a href="Templates.html">Templates</a>
+  <a href="about.html">About</a>
+</nav>
+
+<!-- planner header -->
+<header>
+  <div><strong>Planner</strong></div>
+  <div class="controls">
+    <button onclick="createTextBox()">Add Text Box</button>
+    <button onclick="createCodeBox()">Add Code Block</button>
+    <input type="color" id="colorPicker" value="#00ff88">
+  </div>
+</header>
+
+<div id="canvas"></div>
+
+
+<!-- movable code blocks -->
+
+<script>
+const canvas = document.getElementById('canvas');
+
+function makeDraggable(el) {
+  let offsetX, offsetY, isDown = false;
+
+  el.addEventListener('mousedown', (e) => {
+    isDown = true;
+    offsetX = el.offsetLeft - e.clientX;
+    offsetY = el.offsetTop - e.clientY;
+  });
+
+  document.addEventListener('mouseup', () => isDown = false);
+
+  document.addEventListener('mousemove', (e) => {
+    if (isDown) {
+      el.style.left = (e.clientX + offsetX) + 'px';
+      el.style.top = (e.clientY + offsetY) + 'px';
+    }
+  });
+}
+
+function createTextBox() {
+  const box = document.createElement('div');
+  box.className = 'box text-box';
+  box.contentEditable = true;
+  box.innerText = 'Text...';
+  box.style.left = '100px';
+  box.style.top = '150px';
+
+  const color = document.getElementById('colorPicker').value;
+  box.style.borderColor = color;
+
+  const del = document.createElement('button');
+  del.innerText = '×';
+  del.className = 'delete-btn';
+  del.onclick = () => box.remove();
+
+  box.appendChild(del);
+  makeDraggable(box);
+  canvas.appendChild(box);
+}
+
+function createCodeBox() {
+  const box = document.createElement('div');
+  box.className = 'box code-box';
+  box.contentEditable = true;
+  box.innerText = '// code here';
+  box.style.left = '150px';
+  box.style.top = '200px';
+
+  const del = document.createElement('button');
+  del.innerText = '×';
+  del.className = 'delete-btn';
+  del.onclick = () => box.remove();
+
+  box.appendChild(del);
+  makeDraggable(box);
+  canvas.appendChild(box);
+}
+
+window.onload = function () {
+  const data = JSON.parse(localStorage.getItem("thinktree_template"));
+
+  if (!data) return;
+
+  const canvas = document.getElementById("canvas");
+
+  const box = document.createElement("div");
+  box.className = "box code-box";
+  box.contentEditable = true;
+
+  box.innerText = data.codeBlock;
+
+  box.style.left = "120px";
+  box.style.top = "120px";
+
+  canvas.appendChild(box);
+
+  localStorage.removeItem("thinktree_template");
+};
+
+</script>
+
 </body>
-
-
-
 </html>

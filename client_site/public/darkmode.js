@@ -1,12 +1,12 @@
+const toggleBtn = document.getElementById("darkModeToggle");
 
-// this is a script that toggles dark mode on and off
+toggleBtn.addEventListener("click", () => {
+  document.body.classList.toggle("light-mode");
 
-
-//DOM methods
-const toggle = document.getElementById("darkModeToggle");
-
-if (toggle) {
-  toggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-  });
-}
+  // optional text change
+  if (document.body.classList.contains("light-mode")) {
+    toggleBtn.innerText = "Switch to Dark Mode";
+  } else {
+    toggleBtn.innerText = "Switch to Light Mode";
+  }
+});
